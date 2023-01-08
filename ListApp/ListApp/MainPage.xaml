@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<custom:CustomMainPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:ListApp.Custom"
+    xmlns:vm="clr-namespace:ListApp.ViewModels"
+    x:Class="ListApp.MainPage"
+    AppearedCommand="{Binding OnAppearing}">
+
+    <custom:CustomMainPage.BindingContext>
+        <vm:MainViewModel />
+    </custom:CustomMainPage.BindingContext>
+
+    <StackLayout>
+        <custom:CustomListView ItemsSource="{Binding Users}"
+                               SelectedCommand="{Binding UserTapCommand}">  
+            <ListView.ItemTemplate>  
+                <DataTemplate>  
+                    <ViewCell> 
+                        <StackLayout Orientation="Horizontal">  
+                            <Image Source="{Binding imageUrl}" HeightRequest="50" WidthRequest="50"></Image>  
+                            <Label Text="{Binding id}"></Label>  
+                            <Label Text="{Binding name}"></Label>
+                        </StackLayout>  
+                    </ViewCell>
+                </DataTemplate>  
+            </ListView.ItemTemplate>  
+        </custom:CustomListView>  
+    </StackLayout>
+
+</custom:CustomMainPage>
+
